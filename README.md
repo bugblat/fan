@@ -1,4 +1,4 @@
-# fan - FPGA on an Android
+# Fan - FPGA on an Android
 
 
 This is the software and firmware for Bugblat's *FPGA on Android*
