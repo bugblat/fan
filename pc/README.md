@@ -18,7 +18,6 @@ libbx operates in two modes.
 
 - in application mode, libbx interfaces between an application program
   and the operating system drivers for the FT230 USB/UART chip.
-
 - in JTAG mode, libbx controls the FT230 so that it can bit-bang the
   JTAG interface; it also implements the host of low-level commands that
   are required to reprogram the FPGA.
@@ -44,18 +43,18 @@ To install it under Gideros the DLL must be copied to the *Plugins* folder
 of your Gideros installation.
 Usually this is here::
 
-  C:\Program Files\Gideros\Plugins
+    C:\Program Files\Gideros\Plugins
 
 You may need to run as Administrator.
 
 With the plugin installed, it can be used in a Lua script like this::
 
-  require "bxPlugin"
+    require "bxPlugin"
 
-  if bx.open() then
-    isOpen = true
-    local ok, d = bx.readReg(0, 32)
-    ...
-    ...
+    if bx.open() then
+      isOpen = true
+      local ok, d = bx.readReg(0, 32)
+      ...
+      ...
 
 See also the Lua examples.
