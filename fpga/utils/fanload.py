@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #----------------------------------------------------------------------
 # Name:        fanload.py
 # Purpose:     load a configuration into a fan board via the bx DLL/SO
@@ -8,7 +10,6 @@
 # Copyright:   (c) Tim 2014
 # Licence:     see the LICENSE.txt file
 #----------------------------------------------------------------------
-#!/usr/bin/env python
 
 import sys, ctypes, fanglobs
 from ctypes   import *

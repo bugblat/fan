@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #----------------------------------------------------------------------
 # Name:        fanjed2c.py
 # Purpose:     convert a Fan configuration from JEDEC to C
@@ -8,7 +10,6 @@
 # Copyright:   (c) Tim 2014
 # Licence:     see the LICENSE.txt file
 #----------------------------------------------------------------------
-#!/usr/bin/env python
 
 import sys, ctypes, os
 from ctypes   import *
