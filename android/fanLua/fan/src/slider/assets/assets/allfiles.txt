@@ -1,0 +1,5 @@
+resources/images/sliderbar.png
+resources/images/sliderpill.png
+resources/fonts/PTC55F.ttf*
+sources/slider.lua*
+sources/main.lua*

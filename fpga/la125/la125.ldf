@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="fan" device="LCMXO2-2000HC-4TG100C" default_implementation="la125">
+    <Options/>
+    <Implementation title="la125" dir="syn" description="la125" synthesis="synplify" default_strategy="Area">
+        <Options def_top="fantop"/>
+        <Source name="fantop.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="fantop"/>
+        </Source>
+        <Source name="fanclk.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanwb.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanefb.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanxlayer.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fansm.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanmat.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fantrigo.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanbram.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fandata.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanact.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="fanctl.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../common/fanuctl.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../common/downCounter.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../common/simpleFlasher.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../common/Utils.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../common/fandefs.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../common/fan.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+    </Implementation>
+</BaliProject>

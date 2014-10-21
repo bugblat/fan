@@ -1,0 +1,19 @@
+<project>
+ <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="5" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="800" logicalWidth="480" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
+  <imageScales/>
+ </properties>
+ <folder name="sources">
+  <file source="sources/main.lua"/>
+  <file source="sources/slider.lua"/>
+ </folder>
+ <folder name="resources">
+  <folder name="fonts">
+   <file source="resources/fonts/PTC55F.ttf"/>
+  </folder>
+  <folder name="images">
+   <file source="resources/images/sliderpill.png"/>
+   <file source="resources/images/sliderbar.png"/>
+  </folder>
+ </folder>
+ <dependency from="sources/main.lua" to="sources/slider.lua"/>
+</project>

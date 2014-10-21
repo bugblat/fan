@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion    rootProject.ext.compileSdkVersion
+    buildToolsVersion    rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.bugblat.fan_lua"
+        minSdkVersion 13
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    sourceSets.main {
+      jniLibs.srcDir 'src/main/libs'  // use the jni .so compiled from the manual ndk-build command
+      jni.srcDirs = []                //disable automatic ndk-build call
+    }
+
+    packagingOptions {
+//    exclude 'libs/armeabi/libgideros.so'
+    }
+
+    productFlavors {
+        player {
+            applicationId "com.bugblat.fan.player"
+        }
+
+        slider {
+            applicationId "com.bugblat.fan.slider"
+        }
+
+        me {
+            applicationId "com.bugblat.fan.me"
+        }
+    }
+
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:20.+'
+    compile files('libs/gideros.jar')
+    compile files('libs/j2xx.jar')
+}

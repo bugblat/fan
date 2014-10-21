@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">A Fan Java Test</string>
+  <string name="launch_activity_label">A Fan Java Test</string>
+
+  <string name="register_0">"Register 0 : "</string>
+  <string name="description">"Description : "</string>
+  <string name="startTest">Start Test</string>
+</resources>

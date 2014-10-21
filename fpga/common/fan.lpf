@@ -1,0 +1,111 @@
+# Fan preferences
+#
+# first written: 8-Jul-2014
+#
+#################################################
+# ALL
+
+BLOCK RESETPATHS ;
+BLOCK ASYNCPATHS ;
+
+BANK 0 VCCIO 3.3 V;
+BANK 1 VCCIO 3.3 V;
+BANK 2 VCCIO 3.3 V;
+BANK 3 VCCIO 3.3 V;
+BANK 4 VCCIO 3.3 V;
+BANK 5 VCCIO 3.3 V;
+
+IOBUF ALLPORTS IO_TYPE=LVCMOS33 ;
+
+## MUX_CONFIGURATION_PORTS is DYNAMITE - ENABLE ONLY!
+SYSCONFIG  JTAG_PORT=DISABLE  I2C_PORT=DISABLE SLAVE_SPI_PORT=DISABLE MUX_CONFIGURATION_PORTS=ENABLE;
+
+
+#################################################
+##  Fan
+
+    USERCODE ASCII "FANa" ;
+
+    LOCATE COMP "ID0"           SITE "1"  ;   # on test points
+    LOCATE COMP "ID1"           SITE "8"  ;
+
+##  LOCATE COMP "TP11"          SITE "75" ;
+##  LOCATE COMP "TP12"          SITE "68" ;
+##  LOCATE COMP "TP13"          SITE "58" ;
+##  LOCATE COMP "TP14"          SITE "1"  ;   # used for ID0
+##  LOCATE COMP "TP15"          SITE "8"  ;   # used for ID1
+##  LOCATE COMP "TP16"          SITE "18" ;
+
+    LOCATE COMP "SigIn[0]"      SITE "27" ;
+    LOCATE COMP "SigIn[1]"      SITE "29" ;
+    LOCATE COMP "SigIn[2]"      SITE "31" ;
+    LOCATE COMP "SigIn[3]"      SITE "34" ;
+    LOCATE COMP "SigIn[4]"      SITE "38" ;
+    LOCATE COMP "SigIn[5]"      SITE "40" ;
+    LOCATE COMP "SigIn[6]"      SITE "42" ;
+    LOCATE COMP "SigIn[7]"      SITE "45" ;
+
+    LOCATE COMP "clk24"         SITE "88" ;
+
+    LOCATE COMP "vrefPWM"       SITE "51" ;
+    LOCATE VREF "vrefIn"        SITE "49" ;
+
+    LOCATE COMP "utxd"          SITE "90" ;
+##  LOCATE COMP "urtsn"         SITE "91" ;
+    LOCATE COMP "urxd"          SITE "94" ;
+##  LOCATE COMP "uctsn"         SITE "95" ;
+
+    LOCATE COMP "RedLed"        SITE "25" ;
+    LOCATE COMP "GreenLed"      SITE "52" ;
+
+    LOCATE COMP "trigOut"       SITE "36" ;
+
+##  LOCATE COMP "SUSPn"         SITE "78" ;   ## PROTO ONLY
+    LOCATE COMP "SUSPn"         SITE "97" ;   ## Production boards
+    LOCATE COMP "RST"           SITE "99" ;
+
+##------------------------------------------
+##  Unused pads:
+##
+##  LOCATE COMP "JTAGENcopy"    SITE "83" ;
+
+##------------------------------------------
+##  System pads:
+##
+##  LOCATE COMP "JTAGEN"        SITE "82" ;
+##  LOCATE COMP "TMS"           SITE "90" ;
+##  LOCATE COMP "TCK"           SITE "91" ;
+##  LOCATE COMP "TDI"           SITE "94" ;
+##  LOCATE COMP "TDO"           SITE "95" ;
+##
+##  LOCATE COMP "i2c_SDA"       SITE "85" ;
+##  LOCATE COMP "i2c_SCL"       SITE "86" ;
+##
+##  LOCATE COMP "INITn"         SITE "77" ;
+##  LOCATE COMP "PROGn"         SITE "81" ;
+
+##------------------------------------------
+    DEFINE PORT GROUP "SigByte"
+      "SigIn[0]"
+      "SigIn[1]"
+      "SigIn[2]"
+      "SigIn[3]"
+      "SigIn[4]"
+      "SigIn[5]"
+      "SigIn[6]"
+      "SigIn[7]" ;
+
+  IOBUF GROUP "SigByte" IO_TYPE=SSTL25_II PULLMODE=NONE VREF="vrefIn" CLAMP=OFF ;
+
+  IOBUF PORT  "ID0"     IO_TYPE=LVCMOS33 PULLMODE=DOWN ;
+  IOBUF PORT  "ID1"     IO_TYPE=LVCMOS33 PULLMODE=UP   ;
+
+  IOBUF PORT  "RST"     IO_TYPE=LVCMOS33 PULLMODE=DOWN ;
+  IOBUF PORT  "SUSPn"   IO_TYPE=LVCMOS33 PULLMODE=DOWN ;
+
+##MULTICYCLE FROM CLKNET "ClkRec.xclk" TO CLKNET "ClkRec.sclk" 200.0 ns ;
+##MULTICYCLE FROM CLKNET "ClkRec.sclk" TO CLKNET "ClkRec.xclk" 200.0 ns ;
+  MULTICYCLE FROM CLKNET "clk24_c"     TO CLKNET "ClkRec.sclk" 200.0 ns ;
+  MULTICYCLE FROM CLKNET "ClkRec.sclk" TO CLKNET "clk24_c"     200.0 ns ;
+
+## EOF ##########################################
