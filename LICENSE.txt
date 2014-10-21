@@ -2,7 +2,7 @@ License
 =======
 
 This License applies to all works in the Fan repo unless an exception is
-noted in a perticular file or the particular file is under a separate
+noted in a particular file or the particular file is under a separate
 license from a third party.
 
 Copyright (c) 2004-2014 Tim Eccles and Bugblat Ltd. All rights reserved.
