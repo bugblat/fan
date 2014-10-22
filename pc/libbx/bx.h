@@ -168,7 +168,7 @@ class TbxLo {
     bool      getStatusReg(uint32_t& v);
     bool      getTraceId(uint32_t& v0);
 
-    int       readQclear();
+    void      readQclear();
     bool      toggleRST();
 
     void *    getFtHandle() { return ftHandle; }

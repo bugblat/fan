@@ -83,7 +83,7 @@ BX_LO_API int   bxIsOpen(TbxLoHandle h);
 BX_LO_API int   bxRescan(TbxLoHandle h);
 
 BX_LO_API int   bxSerialNumber(TbxLoHandle h, char* str, int maxLen);
-BX_LO_API void  bxreadQclear(TbxLoHandle h);
+BX_LO_API void  bxReadQclear(TbxLoHandle h);
 BX_LO_API int   bxToggleRST(TbxLoHandle h);
 
 //---------------------

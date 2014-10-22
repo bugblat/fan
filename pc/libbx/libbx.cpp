@@ -60,8 +60,8 @@ int bxSerialNumber(TbxLoHandle h, char* str, int maxLen) {
   str[maxLen-1] = 0;
   return s.size();
   }
-void bxreadQclear(TbxLoHandle h) {
-  pBxLo->readQclear() ? 1 : 0;
+void bxReadQclear(TbxLoHandle h) {
+  pBxLo->readQclear();
   }
 int bxToggleRST(TbxLoHandle h) {
   return pBxLo->toggleRST() ? 1 : 0;

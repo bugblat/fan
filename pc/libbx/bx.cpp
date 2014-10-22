@@ -348,23 +348,15 @@ unsigned TbxLo::_readQavail() {
   }
 
 //---------------------------------------------
-int TbxLo::readQclear() {
-  int lastInput = -1;
+void TbxLo::readQclear() {
   while (ftHandle!= 0) {
+    if (FT_OK != FT_Purge(ftHandle, FT_PURGE_RX))
+      return;
     unsigned numAvail = _readQavail();
     if (numAvail == 0)
-      break;  //return lastInput;
-    // clear in big lumps - FTX internal buffer is 512 bytes
-    uint8_t buf[512];
-    DWORD numRead=0, n = min(numAvail, sizeof(buf));
-    FT_STATUS f = FT_Read(ftHandle, buf, n, &numRead);
-    if (f != FT_OK)
-      return -1;                                    // never fail or throw
-    lastInput = buf[numRead-1];
+      return;
     }
-  return lastInput;
   }
-
 
 //---------------------------------------------
 size_t TbxLo::_read(uint8_t *pBuf, size_t aNeeded) {
