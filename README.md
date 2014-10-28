@@ -1,22 +1,38 @@
 # Fan - FPGA on an Android
 
-
 This is the software and firmware for Bugblat's *FPGA on Android*
 board - the *Fan* board.
 
-The software includes
+The software directory includes
 
-- for full-on Android programming, an example Java app
-- for scripted Android programming, a set of example Lua+Java apps
+- an example Java app for full-on Android programming
+- a set of example Lua+Java apps for scripted Android programming
 - a PC-oriented development environment for prototyping
 
-## What is the Fan board?
+The firmware directory includes the small *flasher* and *flashctl* designs,
+and *la125*, a complete 125MHz logic analyzer.
 
-The Fan board connects to an Android's USB OTG port via an FTDI interface chip.
-To get started you need to install the FTDI drivers, then plug in the Fan board.
+The lua directory has example Lua programs that will run unchanged
+on a PC or on an Android device.
 
+The pc directory contains low level libraries for controlling a FPGA
+board, plus a plugin for using the Lua/Gideros framework on a PC.
+The pc/utils directory includes programs for reprogramming a
+non-volatile FPGA.
 
-## Install the Drivers
+## How to Use the Software and Firmware
+
+The Fan board implements an FPGA with a USB interface for
+programming and control.
+It can connect to an Android's USB OTG port or to a USB port on a PC.
+
+The USB interface is an FTDI chip.
+Android applications need to incorporate FTDI's Java interface JAR,
+as shown in the example applications.
+
+To develop or test on a PC, you need to install FTDI drivers.
+
+## On a PC - Install Drivers
 
 The Fan board software uses 100% standard FTDI *D2XX* drivers.
 Most Linux systems come with FTDI drivers in place,
@@ -31,16 +47,29 @@ You can search for the driver installation program via::
 
 Run the *driver installer*.
 
-
-## Plug In the Fan board
-
 The Fan board comes with firmware already installed.
 when idle, this firmware flashes the onboard LEDs in phase.
 
-So plug your Fan board into a USB micro lead
+So plug the FPGA board into a USB micro lead
 (micro is the type of USB lead used in most modern phones, pads, and eReaders)
 and the LEDs should start doing what LEDs do best.
 
+## On Android - Send an APK to Android
+
+Send one of the APKs (in android/faJava/.../apk or android/fanLua/.../apk)
+to Android.
+Then connect the FPGA board:
+
+- plug the OTG cable into Android
+- plug the regular cable into the OTG cable
+- plug the board into the regular cable.
+
+Android will ask for permission to connect, then the LEDs will flash.
+
+The usual problem is pluging in the cables back to front.
+Both cables have micro-USB connectors so it's easy to do.
+The OTG cable has to plug into Android so that Android goes into host mode.
+Get it wrong and  Android will stay in slave mode.
 
 ## More Information
 
