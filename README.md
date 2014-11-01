@@ -56,7 +56,10 @@ and the LEDs should start doing what LEDs do best.
 
 ## On Android - Send an APK to Android
 
-Send one of the APKs (in android/faJava/.../apk or android/fanLua/.../apk)
+Install the Fan Slider app from
+[Google Play](https://play.google.com/store/apps/details?id=com.bugblat.fan.slider).
+
+Alternatively, send one of the APKs (in android/faJava/.../apk or android/fanLua/.../apk)
 to Android.
 Then connect the FPGA board:
 
